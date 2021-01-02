@@ -7,6 +7,7 @@
         <div id="banner">
             <h1>{{ truck_name }}</h1>
         </div>
+
         <div id="nav" class=>
             <form action="/scroll" method="get">
                 <button class="nav">Popular Items</button>
@@ -25,24 +26,26 @@
                 <input type="hidden" name="section" value="drinks" />
             </form>
         </div>
-
-        <section name="popular" class="section">
-            <h2>Popular Items</h2> 
-        </section>
-        <div id="entrees" class="section">
-            <h2>Entrees</h2>
+        <div class="section">
+            <section id="popular">
+                <h2>Popular Items</h2> 
+            </section>
+            <section id="entrees">
+                <h2>Entrees</h2>
+            </section>
+            <section id="sides">
+                <h2>Sides</h2>
+            </section>
+            <section id="drinks">
+                <h2>Drinks</h2>
+            </section>
         </div>
-        <div id="sides" class="section">
-            <h2>Sides</h2>
-        </div>
-        <div id="drinks" class="section">
-            <h2>Drinks</h2>
-        </div>
+        
         
         {% if scroll %}
         <script>
             console.log(document.getElementById('{{ scroll }}'));
-            document.getElementById('{{ scroll }}').scrollIntoView();
+            document.getElementById('{{ scroll }}').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
         </script>
         {% endif %}
         
