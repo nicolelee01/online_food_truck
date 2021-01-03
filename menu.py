@@ -1,8 +1,9 @@
 def create_dict(file_content):
     sections = {}
     lines = file_content.splitlines()
+    truck_name = lines[0]
     curr = None
-    for line in lines:
+    for line in lines[1:]:
         if line[0] == '.':
             curr = line[1:]
             sections[curr] = []
@@ -21,4 +22,4 @@ def create_dict(file_content):
                 else:
                     price = '{:.2f}'.format(float(word))
             sections[curr].append((name[:len(name)-1], price, img))
-    return sections
+    return sections, truck_name
