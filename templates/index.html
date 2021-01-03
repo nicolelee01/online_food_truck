@@ -26,10 +26,9 @@
                             <img class='img' src='../static/images/{{ item[2] }}'> <h3>&emsp;&emsp;</h3>
                             <form action='/add' method='POST'>
                                 <select name='count'>
-                                    <option value='1'>1</option>
-                                    <option value='2'>2</option>
-                                    <option value='3'>3</option>
-                                    <option value='4'>4</option>
+                                    {% for i in range(1, 11) %}
+                                        <option value='{{i}}'>{{i}}</option>
+                                    {% endfor %}
                                 </select>
                                 <input type='submit' value='Add'>
                                 <input type='hidden' name='item' value='{{ item[0] }}' />
@@ -51,10 +50,9 @@
                         <h3>{{ item }} &emsp; ${{ price }}</h3>
                         <form action='/edit' method='POST' class='edit'>
                             <select name='count'>
-                                <option id='{{ item }} 1' value='1'>1</option>
-                                <option id='{{ item }} 2' value='2'>2</option>
-                                <option id='{{ item }} 3' value='3'>3</option>
-                                <option id='{{ item }} 4' value='4'>4</option>
+                                {% for i in range(1, 11) %}
+                                    <option id='{{ item }} {{i}}' value='{{i}}'>{{i}}</option>
+                                {% endfor %}
                                 <script>
                                     var select = document.getElementById('{{ item }} {{ count }}');
                                     select.setAttribute('selected', true);

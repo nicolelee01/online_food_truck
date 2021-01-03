@@ -51,5 +51,6 @@ def delete(cart, item):
 def calculate_total(cart):
     total = 0.0
     for item in cart:
+        print(item[1], item[2])
         total += int(item[1]) * float(item[2])
     return '{:.2f}'.format(total)
