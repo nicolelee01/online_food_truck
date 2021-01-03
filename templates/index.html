@@ -31,10 +31,10 @@
                                     <option value='3'>3</option>
                                     <option value='4'>4</option>
                                 </select>
-                                <input type='submit' value='Add to Cart'>
+                                <input type='submit' value='Add'>
                                 <input type='hidden' name='item' value='{{ item[0] }}' />
                                 <input type='hidden' name='price' value='{{ item[1] }}' />
-                            </form>
+                            </form>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                         </section>
                     {% endfor %}
                 </section>
@@ -47,22 +47,29 @@
                     <h2 id='empty-cart'>Your cart is empty!</h2>
                 {% endif %}
                 {% for item, count, price in cart %}
-                    <h3>{{ item }} &emsp; ${{ price }}</h3>
-                    <form action='/change' method='POST'>
-                        <select name='count'>
-                            <option id='{{ item }} 1' value='1'>1</option>
-                            <option id='{{ item }} 2' value='2'>2</option>
-                            <option id='{{ item }} 3' value='3'>3</option>
-                            <option id='{{ item }} 4' value='4'>4</option>
-                            <script>
-                                var select = document.getElementById('{{ item }} {{ count }}');
-                                select.setAttribute('selected', true);
-                            </script>
-                        </select>
-                        <input type='submit' value='Change'>
-                        <input type='hidden' name='item' value='{{ item }}' />
-                        <input type='hidden' name='item-price' value='{{ price }}' />
-                    </form>
+                    <section class='cart-item'>
+                        <h3>{{ item }} &emsp; ${{ price }}</h3>
+                        <form action='/edit' method='POST' class='edit'>
+                            <select name='count'>
+                                <option id='{{ item }} 1' value='1'>1</option>
+                                <option id='{{ item }} 2' value='2'>2</option>
+                                <option id='{{ item }} 3' value='3'>3</option>
+                                <option id='{{ item }} 4' value='4'>4</option>
+                                <script>
+                                    var select = document.getElementById('{{ item }} {{ count }}');
+                                    select.setAttribute('selected', true);
+                                </script>
+                            </select>
+                            <input type='submit' value='Edit'>
+                            <input type='hidden' name='item' value='{{ item }}' />
+                            <input type='hidden' name='price' value='{{ price }}' />
+                        </form>
+                        <form action='/delete' method='POST' class='delete'>
+                            <input type='submit' value='Delete'>
+                            <input type='hidden' name='item' value='{{ item }}' />
+                        </form>
+                    </section>
+                    
                 {% endfor %}
                 {% if total %}
                     <h2 id='total-price'>Your total is: ${{ total }}</h2>

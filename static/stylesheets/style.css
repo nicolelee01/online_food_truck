@@ -2,12 +2,12 @@ body {
     font-family: Geneva, Tahoma, Verdana, sans-serif;
     font-size: 20px;
     margin: 0px;
-    margin-right: 350px;
+    margin-right: 500px;
 }
 
 #banner {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 45px;
+    font-size: 40px;
     background-color: #64485C;
     text-align: center;
     padding: 30px;
@@ -27,6 +27,7 @@ body {
     border: none;
     background: none;
     outline: none;
+    padding-top: 10px;
 }
 
 .menu {
@@ -39,6 +40,15 @@ body {
     padding: 10px;
 }
 
+.section form {
+    padding-top: 30px;
+}
+
+.item {
+    font-size: 20px;
+    padding-top: 15px;
+}
+
 .img {
     width: 100px;
     height: 100px;
@@ -47,7 +57,7 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 350px;
+    width: 500px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -63,10 +73,6 @@ body {
     color: white;
     display: block;
 }
-  
-.sidenav a:hover {
-    color: #f1f1f1;
-}
 
 #cart-logo {
     height: 100px;
@@ -77,11 +83,35 @@ body {
 }
 
 #empty-cart {
-    padding-top: 300px;
+    padding-top: 270px;
     text-align: center;
 }
 
 #cart {
     padding-top: 100px;
+    padding-left: 20px;
+}
+
+#cart h3 {
+    font-size: 20px;
+}
+
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit {
+    padding-top: 23px;
+}
+
+.delete {
+    padding-top: 28.5px;
+    padding-left: 10px;
+}
+
+#total-price {
+    position: fixed;
+    bottom: 0;
 }
   

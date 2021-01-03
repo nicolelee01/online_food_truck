@@ -35,6 +35,19 @@ def add(cart, item, count, price):
         cart.append((item, count, price))
     return cart
 
+def edit(cart, item, count, price):
+    for i in range(len(cart)):
+        if cart[i][0] == item:
+            cart[i] = (item, count, '{:.2f}'.format(float(price)))
+    return cart
+
+def delete(cart, item):
+    for i in range(len(cart)):
+        if cart[i][0] == item:
+            cart.pop(i)
+            break
+    return cart
+
 def calculate_total(cart):
     total = 0.0
     for item in cart:
