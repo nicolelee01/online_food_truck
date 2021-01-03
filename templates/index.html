@@ -16,10 +16,10 @@
                 </form>
             {% endfor %}
         </div>
-        <div>
+        <div class='menu'>
             {% for section in sections %}
-                <h2>{{ section }}</h2>
-                <section class='section' id='{{ section }}'>
+                <h2 id='{{ section }}'>{{ section }}</h2>
+                <section class='section'>
                     {% for item in menu[section] %}
                         <section class='section'>
                             <h3 class='item'>{{ item[0] }} &emsp;&emsp; ${{ item[1] }} &emsp;&emsp;&emsp;</h3>
@@ -33,12 +33,43 @@
                                 </select>
                                 <input type='submit' value='Add to Cart'>
                                 <input type='hidden' name='item' value='{{ item[0] }}' />
+                                <input type='hidden' name='price' value='{{ item[1] }}' />
                             </form>
                         </section>
                     {% endfor %}
                 </section>
             {% endfor %}
         </div>
+        <div class="sidenav">
+            <img src='../static/images/cart.png' id='cart-logo'>
+            <section id='cart'>
+                {% if not cart %}
+                    <h2 id='empty-cart'>Your cart is empty!</h2>
+                {% endif %}
+                {% for item, count, price in cart %}
+                    <h3>{{ item }} &emsp; ${{ price }}</h3>
+                    <form action='/change' method='POST'>
+                        <select name='count'>
+                            <option id='{{ item }} 1' value='1'>1</option>
+                            <option id='{{ item }} 2' value='2'>2</option>
+                            <option id='{{ item }} 3' value='3'>3</option>
+                            <option id='{{ item }} 4' value='4'>4</option>
+                            <script>
+                                var select = document.getElementById('{{ item }} {{ count }}');
+                                select.setAttribute('selected', true);
+                            </script>
+                        </select>
+                        <input type='submit' value='Change'>
+                        <input type='hidden' name='item' value='{{ item }}' />
+                        <input type='hidden' name='item-price' value='{{ price }}' />
+                    </form>
+                {% endfor %}
+                {% if total %}
+                    <h2 id='total-price'>Your total is: ${{ total }}</h2>
+                {% endif %}
+            </section>
+            
+          </div>
         
         
         {% if scroll %}

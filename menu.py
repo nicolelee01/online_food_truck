@@ -23,3 +23,20 @@ def create_dict(file_content):
                     price = '{:.2f}'.format(float(word))
             sections[curr].append((name[:len(name)-1], price, img))
     return sections, truck_name
+
+def add(cart, item, count, price):
+    changed = False
+    for i in range(len(cart)):
+        if cart[i][0] == item:
+            changed = True
+            newCount = int(cart[i][1]) + int(count)
+            cart[i] = (item, newCount, price)
+    if not changed:
+        cart.append((item, count, price))
+    return cart
+
+def calculate_total(cart):
+    total = 0.0
+    for item in cart:
+        total += int(item[1]) * float(item[2])
+    return '{:.2f}'.format(total)
