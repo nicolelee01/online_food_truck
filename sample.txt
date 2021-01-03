@@ -1,0 +1,13 @@
+.Entrees
+Veg Momo 7.99 veg-momo.jpg
+Crispy Chilli Baby Corn 6.99 chilli-baby-corn.png
+Chilli Paneer 7.99 chilli-paneer.jpeg
+Gobi Manchurian Dry 7.99 gobi-manchurian.jpg
+Chicken Momo 8.99 chicken-momo.png
+Chilli Momo 9.99 chilli-momo.jpg
+Dry Chilli Chicken 7.99 dry-chilli-chicken.jpg
+Chicken Lollipop 8.99 chicken-lollipop.jpeg
+.Drinks
+Water 1.00 water.jpeg
+Can Drink 1.49 can-drink.jpg
+Bottle Drink 1.99 bottle-drink.png

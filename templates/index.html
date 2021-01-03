@@ -8,43 +8,41 @@
             <h1>{{ truck_name }}</h1>
         </div>
 
-        <div id="nav" class=>
-            <form action="/scroll" method="get">
-                <button class="nav">Popular Items</button>
-                <input type="hidden" name="section" value="popular" />
-            </form>
-            <form action="/scroll" method="get">
-                <button class="nav">Entrees</button>
-                <input type="hidden" name="section" value="entrees" />
-            </form>
-            <form action="/scroll" method="get">
-                <button class="nav">Sides</button>
-                <input type="hidden" name="section" value="sides" />
-            </form>
-            <form action="/scroll" method="get">
-                <button class="nav">Drinks</button>
-                <input type="hidden" name="section" value="drinks" />
-            </form>
+        <div id="nav">
+            {% for section in sections %}
+                <form action='/scroll' method='get'>
+                    <button class='nav'>{{ section }}</button>
+                    <input type='hidden' name='section' value='{{ section }}' />
+                </form>
+            {% endfor %}
         </div>
-        <div class="section">
-            <section id="popular">
-                <h2>Popular Items</h2> 
-            </section>
-            <section id="entrees">
-                <h2>Entrees</h2>
-            </section>
-            <section id="sides">
-                <h2>Sides</h2>
-            </section>
-            <section id="drinks">
-                <h2>Drinks</h2>
-            </section>
+        <div>
+            {% for section in sections %}
+                <h2>{{ section }}</h2>
+                <section class='section' id='{{ section }}'>
+                    {% for item in menu[section] %}
+                        <section class='section'>
+                            <h3 class='item'>{{ item[0] }} &emsp;&emsp; ${{ item[1] }} &emsp;&emsp;&emsp;</h3>
+                            <img class='img' src='../static/images/{{ item[2] }}'> <h3>&emsp;&emsp;</h3>
+                            <form action='/add' method='POST'>
+                                <select name='count'>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                </select>
+                                <input type='submit' value='Add to Cart'>
+                                <input type='hidden' name='item' value='{{ item[0] }}' />
+                            </form>
+                        </section>
+                    {% endfor %}
+                </section>
+            {% endfor %}
         </div>
         
         
         {% if scroll %}
         <script>
-            console.log(document.getElementById('{{ scroll }}'));
             document.getElementById('{{ scroll }}').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
         </script>
         {% endif %}
