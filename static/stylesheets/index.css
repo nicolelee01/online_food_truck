@@ -32,6 +32,7 @@ body {
 
 .menu {
     margin: 20px;
+    margin-right: 0px;
 }
 
 .section {
@@ -47,6 +48,13 @@ body {
 .item {
     font-size: 20px;
     padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.item h3 {
+    font-size: 20px;
 }
 
 .img {
@@ -113,5 +121,12 @@ body {
 #total-price {
     position: fixed;
     bottom: 0;
+}
+
+#place-order {
+    position: fixed;
+    bottom: 0;
+    right: 40px;
+    padding-bottom: 15px;
 }
   

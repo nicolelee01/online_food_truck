@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{ truck_name }}</title>
+        <link rel='stylesheet' href="{{ url_for('static', filename='stylesheets/order.css') }}">
+    </head>
+    <body>
+        <div id='banner'>
+            <h1>Your order has been placed!</h1>
+        </div>
+
+        <div id='cart'>
+            {% for item, count, price in cart %}
+                <h3 class='item'>{{ item }} &#215; {{ count }}</h3>
+                <h3 class='price'>${{ price }}</h3>
+            {% endfor %}
+        </div>
+        <div>
+            <h2 id='total-price'>Your total was: ${{ total }}</h2>
+        </div>
+    </body>
+</html>

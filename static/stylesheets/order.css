@@ -1,0 +1,31 @@
+body {
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+}
+
+#banner {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    background-color: #64485C;
+    text-align: center;
+    padding: 30px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#cart {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30%;
+}
+
+#cart h3{
+    width: 50%;
+    padding-top: 15px;
+}
+
+#total-price {
+    text-align: center;
+}

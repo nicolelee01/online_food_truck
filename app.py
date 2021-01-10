@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from menu import create_dict, add, edit, delete, calculate_total
+from menu import create_dict, add, edit, delete, calculate_total, calculate_total_prices
 app = Flask(__name__)
 
 # get different sections from text file (ex: entrees, sides, etc.)
@@ -51,6 +51,18 @@ def delete_from_cart():
     newCart = delete(cart, item)
     total = calculate_total(newCart)
     return render_template('index.html', truck_name=truck_name, scroll=anchor, sections=sections, menu=menu, cart=newCart, total=total)
+
+#@app.route('/place-order', methods=['POST'])
+#def place_order():
+#    total = calculate_total(cart)
+#    newCart = calculate_total_prices(cart)
+#    return render_template('order.html', truck_name=truck_name, cart=newCart, total=total)
+
+@app.route('/pay', methods=['POST'])
+def pay():
+    total = calculate_total(cart)
+    newCart = calculate_total_prices(cart)
+    return render_template('pay.html', cart=newCart, total=total)
 
 if __name__ == '__main__':
     app.run()
